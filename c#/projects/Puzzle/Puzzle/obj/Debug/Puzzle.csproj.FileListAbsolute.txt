@@ -1,0 +1,10 @@
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\bin\Debug\Puzzle.exe.config
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\bin\Debug\Puzzle.exe
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\bin\Debug\Puzzle.pdb
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\obj\Debug\Puzzle.csprojAssemblyReference.cache
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\obj\Debug\Puzzle.Form1.resources
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\obj\Debug\Puzzle.Properties.Resources.resources
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.GenerateResource.cache
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\obj\Debug\Puzzle.csproj.CoreCompileInputs.cache
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\obj\Debug\Puzzle.exe
+C:\Users\amall\YandexDisk\programming\c#\projects\27-12-2017\Puzzle\Puzzle\obj\Debug\Puzzle.pdb

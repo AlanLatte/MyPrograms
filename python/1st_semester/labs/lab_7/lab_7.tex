@@ -1,0 +1,230 @@
+\documentclass[a4paper]{article}
+\renewcommand{\rmdefault}{ftm}
+\usepackage[14pt]{extsizes}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{setspace,amsmath}
+\usepackage[left=25mm, top=15mm, right=10mm, bottom=25mm, nohead, footskip=10mm]{geometry}
+\begin{document}
+\begin{center}
+\hfill \break
+\large{\textbf{ФГБОУ ВО«Московский Политехнический университет»}}\\
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\large{Лабораторная работа№7}\\
+\footnotesize{Линейные программы\\
+Задание 1\hspace{3cm}Вариант№7\break\\
+По дисциплине:\\
+Основы Программирования
+}
+\end{center}
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\normalsize{ 
+\begin{tabular}{ccc}
+\hspace{4cm}Выполнил & Шукуров Ф.Ф  & группа 181-362\\
+\\
+\hspace{4cm}Проверил & \underline{\hspace{3cm}}& Никишина И.Н
+\end{tabular}
+}
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\begin{center}\texttt{Москва 2018}\end{center}
+\thispagestyle{empty}
+
+\newpage
+Лабораторная работа;
+\\
+    \begin{lab1}
+        \begin{center}\underline{\hspace{6cm}}\\
+            Задание:\\
+        \end{center}
+        В текстовом файле хранится список товаров. Для каждого товара указаны его название, название магазина, в котором продается товар, стоимость товара в тыс.руб. и его количество с указанием единицы измерения (например, 100шт., 20 кг). Написать программу, выполняющую следующие действия:\\
+        1. Корректировку или дополнение списка с калвиатуры;\\
+            2. Вывол на экрна инфрмацию о товаре, название которого введено с клавиатуры;\\
+            3. Запись списка в файл под тем же или новым именем;\\
+    \begin{algoritm}
+        Описание Алгоритма:
+        \small\begin{enumerate}
+            \item 
+                Импортируем необходимые функции
+            \item 
+                Создаем нужные окна, те окна, которые будут нужны исключительно после их вызова, мы скрываем с помощью withdraw(), задаем им заголовок, а так же указываем размер окон.
+            \item
+                Создаем метки, которые будут содержать текстовую константу и находиться в окне <<new\_window2>>. Указывая их координаты с помощью функции *.place(x = n , y = m)
+            \item
+                Создаем поля ввода которые будут находиться в окне <<new\_window2>>, а так же указываем их координаты
+            \item
+                Создаем текстовый объект который будет находиться в окне new\_window
+            \begin{enumerate}
+                \item 
+                    Указываем высоту и длину объекта
+                \item 
+                    Используя *.pack() распологаем объект
+            \end{enumerate}
+            \item 
+                Создаем отдельную фукнцию с кнопками а так же командами для каждой из них
+            \begin{enumerate}
+                \item 
+                    при вызове нового окна, мы показываем необходимое окно в помощью *.deiconify(), и устанавливаем фокус *.focus\_set()
+            \end{enumerate}
+            \item 
+                Извлечение информации из файла csv осуществляется с помощью модуля \texttt{csv}
+            \begin{enumerate}
+                \item 
+                    Используя блок <<with open (...,encodung='...') as ...>> открываем файл в режиме чтения, пройдя проинициализированным циклом for, мы добавляем в ранее созданную переменную name (которая является массивом) объект <<i>>
+            \end{enumerate}
+            \item
+                Открываем файл повторно для реализации алгоритма чтения столбцов.
+            \item В случае добавления информации, открываем тот же файл в режиме добавления (with open ('...','a') as edit\_text)
+            \item используя *.get(1.0,END) экспортируем информацию из полей ввода entry* и добавялем её в конец документа.
+        \end{enumerate}
+    \end{algoritm}
+        \texttt{Листинг Программы:}
+    \begin{verbatim}
+from tkinter import *
+from tkinter.messagebox import showinfo, showerror
+from tkinter import simpledialog
+from tkinter import messagebox as mb
+import csv
+from collections import defaultdict
+
+
+
+def buttons():
+    global button_edit, button_confirm
+
+    button_exit = Button(root, bg = "red", command = root.destroy,
+    text = "Выход", height = 1, width = 10)
+    button_exit.pack(side=BOTTOM, fill=X)
+
+    button_seacrh = Button(root, bg = "#555555", command = new, 
+    text ="Поиск/Добавить" , height =1, width = 15)
+    button_seacrh.pack(side=BOTTOM, fill=X)
+
+    button_confirm = Button(new_window, bg = "#555555", command = 
+    search, text = "Искать",height = 1, width = 10)
+    button_confirm.place(x=0,y=70)
+
+    button_edit = Button(new_window, bg = "#676f77", command = 
+    show_edit, text = "Добавить", height = 1, width = 10)
+    button_edit.place(x=190, y=70)
+
+    button_confirm_edit = Button(new_window2,bg='#77b472', command
+    = edit, text = "Изменить", height = 1, width = 10)
+    button_confirm_edit.place(x=0, y = 165)
+
+    button_back(window=new_window, x=110, y=100)
+    button_back(window=new_window2, x=190, y=165)
+def button_back(window, x,y):
+    b1 = Button(window, bg = "red", command = window.withdraw, 
+    text= "[назад]" )
+    b1.place(x=x, y=y)
+
+def new():
+    new_window.deiconify()
+    new_window.focus_set()
+def search():
+    s = e1.get(1.0,END)
+    if s.replace("\n","") in columns['название']:
+        counter = 0
+        void = None
+        for i in columns["название"]:
+            counter+=1
+            if i == s.replace("\n",""): void = name[counter]
+        label['text'] = void
+    else:
+        label['text'] = 'Продукт не найден, добавте его'
+def edit():
+    with open (r'/home/alan/Files/YandexDisk/programming/programs/
+    labs/lab_7/lab_7.csv',"a",encoding="utf-8") as edit_text:
+            edit_text.write((entry_1.get(1.0,END)).replace('\n',''
+            ) + ", "+(entry_2.get(1.0,END)).replace('\n','') + ", 
+            "+ (entry_3.get(1.0,END)).replace('\n','') + ", 
+            "+(entry_4.get(1.0,END)).replace('\n','') + ", "+ 
+            (entry_5.get(1.0,END)))
+
+def show_edit():
+    new_window2.deiconify()
+    new_window2.focus_set()
+
+name = []
+with open(r'/home/alan/Files/YandexDisk/programming/programs/labs/
+lab_7/lab_7.csv', encoding="utf-8") as name_append:
+    data = csv.reader(name_append,delimiter=',')
+    for i in data:
+        name.append(i)
+with open(r'/home/alan/Files/YandexDisk/programming/programs/labs/
+lab_7/lab_7.csv', encoding="utf-8") as csvfile:
+    columns = defaultdict(list)
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        for (k,v) in row.items(): columns[k].append(v)
+
+print(name)
+root = Tk()
+root.geometry(newGeometry="125x65")
+new_window = Toplevel(root)
+new_window.geometry("300x130")
+new_window.withdraw()
+root.title("7.7")
+
+new_window2 = Toplevel(new_window)
+new_window2.geometry("270x200")
+new_window2.withdraw()
+
+Label(new_window2, text="Название").place(x=0, y=0)
+Label(new_window2, text="Магазин").place(x=0, y=30)
+Label(new_window2, text="Цена").place(x=0,y=60)
+Label(new_window2, text="Количество").place(x=0, y=90)
+Label(new_window2, text="Вес").place(x=0, y=120)
+entry_1 = Text(new_window2, width = 15, height = 1)
+entry_2 = Text(new_window2, width = 15, height = 1)
+entry_3 = Text(new_window2, width = 15, height = 1)
+entry_4 = Text(new_window2, width = 15, height = 1)
+entry_5 = Text(new_window2, width = 15, height = 1)
+entry_1.place(x=90, y=0)
+entry_2.place(x=90, y=30)
+entry_3.place(x=90, y=60)
+entry_4.place(x=90, y=90)
+entry_5.place(x=90, y=120)
+
+e1 = Text(new_window, width=25, height=1)
+e1.pack()
+label2 = Label(new_window, text = 
+"{0}|{1}|{2}|{3}|{4}".format(name[0][0],name[0][1],name[0][2],name
+[0][3],name[0][4]))
+label2.pack()
+label = Label(new_window)
+label.pack()
+
+buttons()
+mainloop()
+
+    \end{verbatim}
+    \end{lab1}
+    
+\end{document}

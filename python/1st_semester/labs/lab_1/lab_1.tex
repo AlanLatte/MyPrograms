@@ -1,0 +1,122 @@
+\documentclass[a4paper]{article}
+\renewcommand{\rmdefault}{ftm}
+\usepackage[14pt]{extsizes}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{setspace,amsmath}
+\usepackage[left=25mm, top=15mm, right=10mm, bottom=25mm, nohead, footskip=10mm]{geometry}
+\begin{document}
+\begin{center}
+\hfill \break
+\large{\textbf{ФГБОУ ВО«Московский Политехнический университет»}}\\
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\large{Лабораторная работа№1}\\
+\footnotesize{Линейные программы\\
+Задание 1\hspace{3cm}Вариант№1\break\\
+По дисциплине:\\
+Основы Программирования
+}
+\end{center}
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\normalsize{ 
+\begin{tabular}{ccc}
+\hspace{4cm}Выполнил & \underline{\hspace{3cm}} & Шукуров Ф.Ф\\
+\hspace{4cm}Проверил & \underline{\hspace{3cm}}& Никишина И.Н
+\end{tabular}
+}
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\begin{center}\texttt{Москва 2018}\end{center}
+\thispagestyle{empty}
+
+\newpage
+Задание№1.27\\
+    \begin{lab1}
+        Задание:
+        \begin{center}
+            $z{_1}={a^{\sqrt{log{_a}b}}}-{b^{\sqrt{log{_b}a}}}+tg(ab+3{\pi}/2);$ \hspace{1cm}$z{_2}={tg(ab+\frac{3}{2}\pi)}$
+        \end{center}
+    \begin{introduction}
+    Постановка задачи:
+    Нужно написать программу которая вычисляет значения $z{_1}$ и $z{_2}$ по заданному пользователем a и b
+        \begin{enumerate}
+            \item Для решения данной задачи используется импорт math функций: log, tan, pi, sqrt
+            \item Блок\\>>try: <Попытка> \\>>except<Возможная ошибка>:<Исполниvый код в случае ошибки>\\использован для исключения неверного ввода данных
+        \end{enumerate}
+        
+    \end{introduction}
+    \begin{description}
+        Описание программы:\\
+        \small{Программа была написанна на python 3.6, реализованна в среде os Linux, отвечает за ввод данных, вычисление и вывод данных на экраню}
+    \end{description}
+    \begin{algoritm}
+        Описание Алгоритма:
+        \small\begin{enumerate}
+            \item Ввод значений <<a>> и <<b>>
+            \item Присваивание их к значению \textsc{float}
+            \item Исполнение вычислений по формулам
+            \item В случае некоректного ввода оповестить об этом пользователя
+            \item Вывести результат на экран
+        \end{enumerate}
+    \end{algoritm}
+        \texttt{Листинг Программы:}
+    \begin{verbatim}
+from math import log, tan, pi, sqrt
+while True:
+    try:
+        a = float(input('Enter your A: '))
+        b = float(input('Enter your B: '))
+        z1 = a**(sqrt(log(a,b)))-b**(sqrt(log(b,a)))+tan(a*b+(3*pi/2))
+        z2 = tan(a*b+(3*pi)/2)
+        break
+    except:
+        print('ОДЗ!1')
+print("Z1 = " + str(z1) + "\n" +"Z2 = " + str(z2))
+    \end{verbatim}
+    \end{lab1}
+    \begin{result}
+        Результат тестирования программ
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c|cc}
+                 & a & b & калькулятор & программа & второе выражение &\\
+                 \hline
+                 & 2 & 2 & -0.863692254445617 & -0.863691154450617 & -0.863691154450617\\
+                 \hline
+                 & 4 & 2 & 5.6175416 & 5.6175314458273435 & 0.1470650639494803\\
+                 \hline
+                 & 12 & 6 & 17.90000675 & 17.891026753662935 & 3.8107232437097944\\
+                 \hline
+                 & 2.1 & 1.2 & -1.9763559 & -1.9762568163731729 & 1.3960316836565028
+                 \hline
+            \end{tabular}
+    
+        \end{center}
+        
+    \end{result}
+    
+\end{document}

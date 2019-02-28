@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+{% extends 'blog/baseblog.html' %}
+
+{% block title %}
+	{{ tag.title }} - {{ bloack.super }}
+{% endblock %}
+
+{% block content %}
+	<h1 class="mb-5">Posts with "{{ tag.title|title }}" tag:</h1>
+
+	{% for post in tag.posts.all %}
+		{% include 'blog/includes/post_card_template.html' %}
+	{% endfor %}
+
+{% endblock %}
+=======
+{% extends 'blog/baseblog.html' %}
+
+{% block title %}
+	{{ tag.title }} - {{ bloack.super }}
+{% endblock %}
+
+{% block content %}
+	<h1 class="mb-5">Posts with "{{ tag.title|title }}" tag:</h1>
+
+	{% for post in tag.posts.all %}
+		{% include 'blog/includes/post_card_template.html' %}
+	{% endfor %}
+
+{% endblock %}
+>>>>>>> Some error have exists

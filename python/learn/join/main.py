@@ -1,0 +1,1 @@
+print(''.join(a for a in 'hello wor123123 123123ld 12312' if a.isdigit()))

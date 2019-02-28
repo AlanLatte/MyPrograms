@@ -1,0 +1,10 @@
+.logo{
+	width: 175px;
+	height: 175px;
+	border-radius: 100%;
+	max-width: 100%;
+	display: block;
+}
+.bodyColor{
+  background-color: #CDCDB4;
+}
