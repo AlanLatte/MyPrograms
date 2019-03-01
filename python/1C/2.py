@@ -1,29 +1,17 @@
-<<<<<<< HEAD
-massive = [['Иванов', 'П.С.', '555-66-77'], ['Иванов', 'П.С.', '555-66-76'], ['Иванов', 'П.F.','555-66-77'],['Иванов', 'П.F.','555-66-76'], ['Иванов', 'П.F.','555-66-36']]
-number = []
+string = 'Петрова И.С 555-44-77'
+massive =   [
+                ['ПеРрова', 'И.С', ['555','44','76']],
+                ['Перова', 'С.С', ['555','44','77']],
+                ['Петрова', 'И.С', ['555','44','77']]
+            ]
+
+correct = []
 for i in range(len(massive)):
-    number.append(massive[i][2].split('-')[-1])
-
-find = []
-
-for i in range(len(number)):
-    ind = number.index(number[i])
-    find.append(ind)
-print(find)
-#
-# for i in range(len(find)):
-=======
-massive = [['Иванов', 'П.С.', '555-66-77'], ['Иванов', 'П.С.', '555-66-76'], ['Иванов', 'П.F.','555-66-77'],['Иванов', 'П.F.','555-66-76'], ['Иванов', 'П.F.','555-66-36']]
-number = []
-for i in range(len(massive)):
-    number.append(massive[i][2].split('-')[-1])
-
-find = []
-
-for i in range(len(number)):
-    ind = number.index(number[i])
-    find.append(ind)
-print(find)
-#
-# for i in range(len(find)):
->>>>>>> Some error have exists
+    correct.append(massive[i][-1][-1])
+print(correct)
+d = []
+for i in correct:
+    d.append(correct.index(i))
+    if d > 1:
+        for q in range(2):
+            print(massive[lol])
