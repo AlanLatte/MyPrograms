@@ -5,6 +5,8 @@ def dicti():
         dict.setdefault(i, 0)
         if i in dict:
             dict.update({i : dict[i] + 1})
+    
+    dict.values()
     return dict
 
 def mass():
@@ -17,3 +19,7 @@ def mass():
 	        data.append(1)
 	        massive.append(i)
 	return ''.join(massive[a]+str(data[a]) for a in range(len(massive)))
+
+
+print(mass())
+print(dicti())
