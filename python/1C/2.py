@@ -10,5 +10,4 @@ for i in range(len(massive)):
 
 
 # for i in range(len(data)):
-# 	for q in 
-	
+# 	for q in
