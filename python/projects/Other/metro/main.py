@@ -4,4 +4,5 @@ def main():
     json = requests.get(url=url).json()
     for i in range(1, len(json)):
         print(json[i]['Cells']['Station']+" - "+str(json[i]['Cells']['ID'])+" - "+str(json[i]['Cells']['Status']))
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()

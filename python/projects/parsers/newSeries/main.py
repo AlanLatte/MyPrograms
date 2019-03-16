@@ -65,5 +65,6 @@ def main():
     site_detect(url=urls)
     AFTER = clean_data(get_result())
     data_check(BEFORE, AFTER, url=urls)
+    
 if __name__ == '__main__':
     main()

@@ -1,6 +1,4 @@
-
 import pyxel
-
 from asteroid import Asteroid
 from bullet import Bullet
 import collisions
