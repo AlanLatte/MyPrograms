@@ -16,6 +16,7 @@ def get_data(cookies, headers, url):
         grid = data.json()['grid']
         print(days[today-1])
         print('============\n')
+
         for pair in range(1, 7):
             pairs = grid[str(today)][str(pair)]
             if len(pairs) > 0:
