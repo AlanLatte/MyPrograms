@@ -1,20 +1,49 @@
 import requests,re, os, webbrowser
 from bs4 import BeautifulSoup as bs
 def parse_anidub(url, index):
+    pattern = r'>(.*)<'
+    tag = 'div'
+    attr = {'title'}
+    data = parser(url, index, pattern, tag, attr)
+    data_write(data=f'{index}'+data)
+
+def parse_anilibria(url, index):
+    def get_series():
+        pattern = r'(С|с)ерия \d-\d+'
+        tag = 'td'
+        attr = {'class':'torrentcol1'}
+        return parser(url, index, pattern, tag, attr)
+    def get_name():
+        pattern = r'(>\s.*\s+<)'
+        tag = 'h1'
+        attr = {'class':'release-title'}
+        data = parser(url, index, pattern, tag, attr)
+        pattern = r'[^\t\n><]'
+        matches = re.finditer(pattern, data)
+        return ''.join(match.group() for matchNum, match in enumerate(matches))
+    data_series = get_series().split(' ')[1].replace('-',' из ')
+    data_name = get_name()
+    data_write(data=f'{index}'+'> '+data_name+'. ['+data_series+']<')
+
+def parser( url,
+            index,
+            pattern,
+            tag,
+            attr):
     with requests.Session() as session:
         request = session.get(url)
         if request.status_code == 200:
             soup = bs(request.content,'html.parser')
-            divs = soup.find_all('div', attrs={'title'})
-            data = re.search(r'>(.*)<', str(divs)).group()
-            data_write(data=f'{index}'+data)
+            divs = soup.find_all(tag, attrs=attr)
+            data = re.search(pattern, str(divs)).group()
         elif request.status_code == 404:
-            text = 'line '+str(index)+' in urls.txt was broken'
+            text = 'line '+str(index)+'in urls.txt was broken'
             data_write(data=f'{index}>'+text)
             print(text)
         else:
             print('Server fall')
-#create refactoring
+    return data
+
 def data_check(BEFORE, AFTER, url):
     if BEFORE != AFTER:
         result=list(set(AFTER) - set(BEFORE))
@@ -32,7 +61,7 @@ def site_detect(url):
     for i in url:
         index = url.index(i)
         if re.search(r'anilibria', i):
-            print('Please paste only Anidub url')
+            parse_anilibria(url=i, index=index+1)
         elif re.search(r'anime.anidub', i):
             parse_anidub(url=i, index=index+1)
 
@@ -67,4 +96,6 @@ def main():
     data_check(BEFORE, AFTER, url=urls)
 
 if __name__ == '__main__':
+    print('Loading...')
     main()
+    print('Done!')
