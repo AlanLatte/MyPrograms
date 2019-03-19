@@ -97,10 +97,7 @@ def main():
     BEFORE = clean_data(get_result())
     result_clear()
     urls = clean_data(get_urls())
-    thread = Thread(target=site_detect, args=(urls,))
-    thread.start()
-    thread.join()
-    # site_detect(url=urls)
+    site_detect(url=urls)
     AFTER = clean_data(get_result())
     data_check(BEFORE, AFTER, url=urls)
 
