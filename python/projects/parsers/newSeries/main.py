@@ -1,5 +1,7 @@
 import requests,re, os, webbrowser
 from bs4 import BeautifulSoup as bs
+from time import sleep
+
 def parse_anidub(url, index):
     pattern = r'>(.*)<'
     tag = 'div'
@@ -99,17 +101,15 @@ def main():
     AFTER = clean_data(get_result())
     data_check(BEFORE, AFTER, url=urls)
 
-def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = ':'):
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '#'):
     percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
     filledLength = int(length * iteration // total)
-    bar = fill * filledLength + '-' * (length - filledLength)
+    bar = fill * filledLength + ':' * (length - filledLength)
     print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = '\r')
     if iteration == total:
         print()
-
 if __name__ == '__main__':
     print('Loading...')
-
     main()
-
     print('Done!')
+    sleep(3)
