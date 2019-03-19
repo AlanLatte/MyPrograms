@@ -1,11 +1,6 @@
 import requests,re, os, webbrowser
 from bs4 import BeautifulSoup as bs
 from time import sleep
-<<<<<<< HEAD
-=======
-from threading import Thread
-
->>>>>>> 0d26b83a44ecba49a8403bf4ad781e57cc80c8e6
 
 def parse_anidub(url, index):
     pattern = r'>(.*)<'
