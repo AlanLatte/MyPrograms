@@ -14,7 +14,7 @@ def parse_anidub(url, index):
             print(text)
         else:
             print('Server fall')
-
+#create refactoring
 def data_check(BEFORE, AFTER, url):
     if BEFORE != AFTER:
         result=list(set(AFTER) - set(BEFORE))
