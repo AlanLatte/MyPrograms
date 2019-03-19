@@ -1,6 +1,11 @@
 import requests,re, os, webbrowser
 from bs4 import BeautifulSoup as bs
 from time import sleep
+<<<<<<< HEAD
+=======
+from threading import Thread
+
+>>>>>>> 0d26b83a44ecba49a8403bf4ad781e57cc80c8e6
 
 def parse_anidub(url, index):
     pattern = r'>(.*)<'
@@ -97,7 +102,10 @@ def main():
     BEFORE = clean_data(get_result())
     result_clear()
     urls = clean_data(get_urls())
-    site_detect(url=urls)
+    thread = Thread(target=site_detect, args=(urls,))
+    thread.start()
+    thread.join()
+    # site_detect(url=urls)
     AFTER = clean_data(get_result())
     data_check(BEFORE, AFTER, url=urls)
 
