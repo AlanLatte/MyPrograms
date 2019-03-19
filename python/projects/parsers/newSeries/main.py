@@ -62,7 +62,7 @@ def site_detect(url):
     l = len(items)
     for i in url:
         for q, item in enumerate(items):
-            printProgressBar(q + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
+            printProgressBar(q + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 25)
             index = url.index(i)
         if re.search(r'anilibria', i):
             parse_anilibria(url=i, index=index+1)
