@@ -1,5 +1,12 @@
 <pre>
 .
+├── AutoReadMe.sh
+├── bash
+│   ├── learn
+│   │   └── input
+│   └── script
+│       ├── gcc_compile.sh
+│       └── test.sh
 ├── c#
 │   └── projects
 │       ├── fractals
@@ -42,16 +49,33 @@
 │           │   └── Puzzle.csproj
 │           └── Puzzle.sln
 ├── c++
+│   ├── algorithms
+│   │   ├── ProjectEuler
+│   │   │   ├── 1_NumberMultipes
+│   │   │   │   ├── main
+│   │   │   │   └── main.cpp
+│   │   │   ├── 2_Fibonachi
+│   │   │   │   ├── main
+│   │   │   │   └── main.cpp
+│   │   │   ├── 3_LPF
+│   │   │   │   ├── main
+│   │   │   │   └── main.cpp
+│   │   │   └── README.py
+│   │   └── StringReverse
+│   │       ├── main
+│   │       └── main.cpp
 │   └── learn
+│       ├── functions
+│       │   └── integers
+│       │       ├── main
+│       │       └── main.cpp
 │       ├── HelloWorld
 │       │   ├── main
 │       │   └── main.cpp
 │       ├── Logic
-│       │   └── integers
-│       │       ├── main
-│       │       └── main.cpp
+│       │   ├── main
+│       │   └── Squere.cpp
 │       └── string
-│           └── main.cpp
 ├── Configs
 │   └── SearchInBrowser.py
 ├── HTML
@@ -232,12 +256,19 @@
 │       │   │   ├── main.py
 │       │   │   ├── __pycache__
 │       │   │   │   ├── asteroid.cpython-36.pyc
+│       │   │   │   ├── asteroid.cpython-37.pyc
 │       │   │   │   ├── bullet.cpython-36.pyc
+│       │   │   │   ├── bullet.cpython-37.pyc
 │       │   │   │   ├── collisions.cpython-36.pyc
+│       │   │   │   ├── collisions.cpython-37.pyc
 │       │   │   │   ├── constants.cpython-36.pyc
+│       │   │   │   ├── constants.cpython-37.pyc
 │       │   │   │   ├── ship.cpython-36.pyc
+│       │   │   │   ├── ship.cpython-37.pyc
 │       │   │   │   ├── sound.cpython-36.pyc
-│       │   │   │   └── utils.cpython-36.pyc
+│       │   │   │   ├── sound.cpython-37.pyc
+│       │   │   │   ├── utils.cpython-36.pyc
+│       │   │   │   └── utils.cpython-37.pyc
 │       │   │   ├── score.txt
 │       │   │   ├── ship.py
 │       │   │   ├── sound.py
@@ -389,8 +420,7 @@
 │                       │   └── IMG_9041.JPG
 │                       ├── index.html
 │                       └── styles.css
-├── README.md
-└── test.py
+└── README.md
 
-117 directories, 274 files
+128 directories, 293 files
 </pre>
