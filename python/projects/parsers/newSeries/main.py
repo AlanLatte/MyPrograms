@@ -21,7 +21,7 @@ def parse_anilibria(url, index):
         pattern = r'[^\t\n><]'
         matches = re.finditer(pattern, data)
         return ''.join(match.group() for matchNum, match in enumerate(matches))
-    data_series = get_series().split(' ')[1].replace('-',' из ')
+    data_series = get_series().split(' ')[1].split('-')[1]
     data_name = get_name()
     data_write(data=f'{index}'+'> '+data_name+' ['+data_series+']<')
 
