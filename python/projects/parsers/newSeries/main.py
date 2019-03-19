@@ -23,7 +23,7 @@ def parse_anilibria(url, index):
         return ''.join(match.group() for matchNum, match in enumerate(matches))
     data_series = get_series().split(' ')[1].replace('-',' из ')
     data_name = get_name()
-    data_write(data=f'{index}'+'> '+data_name+'. ['+data_series+']<')
+    data_write(data=f'{index}'+'> '+data_name+' ['+data_series+']<')
 
 def parser( url,
             index,
@@ -42,7 +42,7 @@ def parser( url,
             print(text)
         else:
             print('Server fall')
-    return data
+        return data
 
 def data_check(BEFORE, AFTER, url):
     if BEFORE != AFTER:
@@ -58,8 +58,12 @@ def data_write(data):
         result.write(data+'\n')
 
 def site_detect(url):
+    items = list(range(0, 100))
+    l = len(items)
     for i in url:
-        index = url.index(i)
+        for q, item in enumerate(items):
+            printProgressBar(q + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
+            index = url.index(i)
         if re.search(r'anilibria', i):
             parse_anilibria(url=i, index=index+1)
         elif re.search(r'anime.anidub', i):
@@ -95,7 +99,17 @@ def main():
     AFTER = clean_data(get_result())
     data_check(BEFORE, AFTER, url=urls)
 
+def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = ':'):
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
+    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = '\r')
+    if iteration == total:
+        print()
+
 if __name__ == '__main__':
     print('Loading...')
+
     main()
+
     print('Done!')
