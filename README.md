@@ -229,13 +229,13 @@
 │       │   │   ├── bot3
 │       │   │   │   └── main.py
 │       │   │   ├── MainBot
-│       │   │   │   ├── data.py
+│       │   │   │   ├── api_token.py
 │       │   │   │   ├── main.py
 │       │   │   │   └── __pycache__
 │       │   │   │       ├── data.cpython-35.pyc
 │       │   │   │       └── data.cpython-36.pyc
 │       │   │   └── testBot_1
-│       │   │       ├── data.py
+│       │   │       ├── api_token.py
 │       │   │       ├── main.py
 │       │   │       ├── parse.py
 │       │   │       └── __pycache__
@@ -243,7 +243,7 @@
 │       │   │           ├── data.cpython-36.pyc
 │       │   │           └── main.cpython-36.pyc
 │       │   └── vk_bot
-│       │       ├── data.py
+│       │       ├── api_token.py
 │       │       ├── main.py
 │       │       └── __pycache__
 │       │           └── data.cpython-36.pyc
@@ -291,7 +291,11 @@
 │       │   ├── metro
 │       │   │   └── main.py
 │       │   └── weather
-│       │       └── main.py
+│       │       ├── api_token.py
+│       │       ├── main.py
+│       │       └── __pycache__
+│       │           ├── api_token.cpython-37.pyc
+│       │           └── token.cpython-37.pyc
 │       ├── parsers
 │       │   ├── crypto
 │       │   │   ├── coinmarketcap.csv
@@ -302,6 +306,8 @@
 │       │   │   └── urls.txt
 │       │   └── rasp.dmami
 │       │       └── main.py
+│       ├── progressBar
+│       │   └── main.py
 │       └── WEB
 │           ├── Django
 │           │   ├── blogengine
@@ -423,5 +429,5 @@
 ├── README.md
 └── test.py
 
-128 directories, 294 files
+130 directories, 298 files
 </pre>
