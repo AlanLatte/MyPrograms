@@ -1,7 +1,7 @@
-import telebot, requests, data, datetime, re
+import telebot, requests, api_token, datetime, re
 from flask import Flask, request
 from telebot import types
-token = data.token
+token = token.token
 url = 'https://470e108e.ngrok.io'
 
 app = Flask(__name__)

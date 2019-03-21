@@ -1,4 +1,4 @@
-import requests, datetime
+import requests, datetime, api_token
 def weather(URL,time,api_key,city):
     url = URL+time+api_key+city; time = requests.get(url).json()['dt']
     print(datetime.datetime.now().strftime('%H:%M:%S\n----------'))
@@ -9,5 +9,5 @@ def weather(URL,time,api_key,city):
 
 weather(URL     = 'http://api.openweathermap.org/data/2.5/'                     ,\
         time    = 'weather'                                                     ,\
-        api_key = '?appid='        +    '549ca41931ed23380bcccacbf85794fd'      ,\
+        api_key = '?appid='        +    f'{api_token.token}'      ,\
         city    = '&q='            +                   'Moscow'                 )

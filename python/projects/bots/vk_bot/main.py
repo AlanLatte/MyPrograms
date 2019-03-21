@@ -1,4 +1,4 @@
-from data import data_get
+from api_token import data_get
 def main():
     data_get(URL = 'https://api.vk.com/'    ,\
             method = 'method/'              ,\
