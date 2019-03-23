@@ -1,4 +1,5 @@
 import requests, re, datetime
+from time import sleep
 def get_data(cookies, headers, url):
     data = requests.post(url, cookies=cookies, headers=headers)
     days = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье']
@@ -38,3 +39,4 @@ def main(bpc='89a0ada592fc339f7847813f87c3199b', group = '181-362'):
 
 if __name__ == '__main__':
     main()
+    sleep(3)
