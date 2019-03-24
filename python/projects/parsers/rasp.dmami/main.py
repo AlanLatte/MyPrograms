@@ -1,5 +1,6 @@
 import requests, re, datetime
 from time import sleep
+
 def get_data(cookies, headers, url):
     data = requests.post(url, cookies=cookies, headers=headers)
     days = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье']
@@ -17,16 +18,18 @@ def get_data(cookies, headers, url):
         grid = data.json()['grid']
         print(days[today-1])
         print('============\n')
-
-        for pair in range(1, 7):
-            pairs = grid[str(today)][str(pair)]
-            if len(pairs) > 0:
-                print(time[str(pair)])
-                print(pairs[0]['subject'])
-                print(pairs[0]['teacher'])
-                auditories = pairs[0]['auditories']
-                print(','.join(auditories[i]['title'] for i in range(len(auditories))))
-                print()
+        if today == 7:
+            print('  ВЫХОДНОЙ  ')
+        else:
+            for pair in range(1, 7):
+                pairs = grid[str(today)][str(pair)]
+                if len(pairs) > 0:
+                    print(time[str(pair)])
+                    print(pairs[0]['subject'])
+                    print(pairs[0]['teacher'])
+                    auditories = pairs[0]['auditories']
+                    print(','.join(auditories[i]['title'] for i in range(len(auditories))))
+                    print()
     except ValueError:
         cookies_correct = re.search(r'bpc=\w+', data.text).group().split('=')[-1]
         main(bpc=cookies_correct)
