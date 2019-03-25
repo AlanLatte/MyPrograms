@@ -1,6 +1,6 @@
 import requests, re, datetime
 from time import sleep
-
+from urllib.parse import quote
 def get_data(cookies, headers, url):
     data = requests.post(url, cookies=cookies, headers=headers)
     days = ['понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота', 'воскресенье']
@@ -35,7 +35,7 @@ def get_data(cookies, headers, url):
         cookies_correct = re.search(r'bpc=\w+', data.text).group().split('=')[-1]
         main(bpc=cookies_correct)
 
-def main(bpc='89a0ada592fc339f7847813f87c3199b', group = '181-362'):
+def main(bpc='89a0ada592fc339f7847813f87c3199b', group=quote('ДЦатБ-3-1')):
     get_data(   cookies = {'bpc': bpc, 'group': group},\
                 headers = {'referer': 'https://rasp.dmami.ru/' },\
                 url = f'https://rasp.dmami.ru/site/group?group={group}&session=0'\
