@@ -21,7 +21,9 @@ def get_data(cookies, headers, url):
         if today == 7:
             print('  ВЫХОДНОЙ  ')
         else:
+
             for pair in range(1, 7):
+
                 pairs = grid[str(today)][str(pair)]
                 if len(pairs) > 0:
                     object_1 = pairs[0]
@@ -31,6 +33,7 @@ def get_data(cookies, headers, url):
                     auditories = object_1['auditories']
                     print(','.join(i['title'] for i in auditories))
                     print()
+
     except ValueError:
         cookies_correct = re.search(r'bpc=\w+', data.text).group().split('=')[-1]
         main(bpc=cookies_correct)
