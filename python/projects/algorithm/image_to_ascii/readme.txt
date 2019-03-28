@@ -1,1 +1,1 @@
-py main.py --file 4VomsUbRqvo.jpg --cols 240
+py main.py --file image --cols 240
