@@ -2,15 +2,11 @@
 .
 ├── AutoReadMe.sh
 ├── bash
-│   ├── learn
-│   │   └── input
 │   └── script
 │       ├── gcc_compile.sh
 │       └── test.sh
 ├── c#
 │   └── projects
-│       ├── fractals
-│       │   └── main.cs
 │       └── Puzzle
 │           ├── Puzzle
 │           │   ├── App.config
@@ -80,18 +76,12 @@
 │   └── SearchInBrowser.py
 ├── HTML
 │   └── projects
-│       ├── dealine_time
-│       │   ├── BFG.gif
-│       │   ├── deadline.html
-│       │   ├── snow.js
-│       │   ├── styles.css
-│       │   └── timeswap.js
-│       └── mySite
-│           ├── index.html
-│           ├── jQuery.js
-│           ├── loading.js
-│           ├── main.css
-│           └── xero-graff-alt.png
+│       └── dealine_time
+│           ├── BFG.gif
+│           ├── deadline.html
+│           ├── snow.js
+│           ├── styles.css
+│           └── timeswap.js
 ├── java
 │   └── Learn
 │       ├── data
@@ -101,17 +91,10 @@
 │           ├── HelloWorld.class
 │           └── HelloWorld.java
 ├── JavaScript
-│   ├── learn
-│   │   └── hello world
-│   │       ├── index.html
-│   │       └── main.js
-│   └── Projects
-│       ├── Flappy Bird
-│       │   ├── bird.js
-│       │   └── main.js
-│       └── Stars
+│   └── learn
+│       └── hello world
 │           ├── index.html
-│           └── stars.js
+│           └── main.js
 ├── python
 │   ├── 1C
 │   │   ├── 1.py
@@ -429,5 +412,5 @@
 ├── README.md
 └── test.py
 
-130 directories, 298 files
+123 directories, 288 files
 </pre>
