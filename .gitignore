@@ -1,7 +1,13 @@
 api_token*
+
 AutoReadMe.sh
+
 python/projects/parsers/newSeries/result.txt
 python/projects/parsers/newSeries/urls.txt
-__pycache__*
+
+
+__pycache__/
 *.pyc
+
+
 *.class
