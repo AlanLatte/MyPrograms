@@ -93,6 +93,7 @@ def check_data(data, DB_result, url):
         result=list(set(new_data) - set(old_data))
         for i in range(len(result)):
             index = result[i][0]
+            print(f'New series of {result[i]} available.')
             webbrowser.open(str(url[int(index)-1]))
     else:
         print('New series didn`t come out :c')
@@ -119,6 +120,7 @@ if __name__ == '__main__':
                     'user-agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
                 }
     """ Check for files """
+    # REVIEW: Доделать систему switch-case
     if DB_result not in LISTDIR:
         Record.clear_data(file=DB_result, mode='w')
     if DB_urls not in LISTDIR:
