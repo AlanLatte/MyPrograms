@@ -1,115 +1,133 @@
-import requests,re, os, webbrowser
-from bs4 import BeautifulSoup as bs
-from time import sleep
+# -*- coding: utf-8 -*-
+import os,requests, re, webbrowser
+from hashlib import sha1
+from bs4 import BeautifulSoup
 
-def parse_anidub(url, index):
-    pattern = r'>(.*)<'
-    tag = 'div'
-    attr = {'title'}
-    data = parser(url, index, pattern, tag, attr)
-    data_write(data=f'{index}'+data)
+""" Change directory to current """
+os.chdir(os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))))
 
-def parse_anilibria(url, index):
-    def get_series():
-        pattern = r'(С|с)ерия \d-\d+'
-        tag = 'td'
-        attr = {'class':'torrentcol1'}
-        return parser(url, index, pattern, tag, attr)
-    def get_name():
-        pattern = r'(>\s.*\s+<)'
-        tag = 'h1'
-        attr = {'class':'release-title'}
-        data = parser(url, index, pattern, tag, attr)
-        pattern = r'[^\t\n><]'
-        matches = re.finditer(pattern, data)
-        return ''.join(match.group() for matchNum, match in enumerate(matches))
-    data_series = get_series().split(' ')[1].split('-')[1]
-    data_name = get_name()
-    data_write(data=f'{index}'+'> '+data_name+' ['+data_series+']<')
+def get_file_data(DB_filename: str, mode='r'):
+    """
+        types:
+            data    —   tuple
+            index   —   int
+    """
+    with open(DB_filename, mode) as raw_data:
 
-def parser( url,
-            index,
-            pattern,
-            tag,
-            attr):
-    with requests.Session() as session:
-        request = session.get(url)
+        data = raw_data.read().split('\n')
+        index = data.index('')
+
+        if '' in data:  del data[index];\
+                        return tuple(data)
+        else:           return tuple(data)
+
+def parser(urls: tuple, headers: dict):
+    """
+        types:
+            url             —   str
+            index           —   int
+            headers         —   dict
+            error_message   —   str
+            result          —   str
+            title           —   str
+            series          —   str
+
+        information:
+            index for notify the user of any error
+    """
+    result = str()
+
+
+    """Start logic of parser"""
+
+    for index, url in enumerate(urls,1):
+        request = requests.get(url, headers=headers)
+        error_message = f'The {index} url was broken'
         if request.status_code == 200:
-            soup = bs(request.content,'html.parser')
-            divs = soup.find_all(tag, attrs=attr)
-            data = re.search(pattern, str(divs)).group()
-        elif request.status_code == 404:
-            text = 'line '+str(index)+'in urls.txt was broken'
-            data_write(data=f'{index}>'+text)
-            print(text)
-        else:
-            print('Server fall')
-        return data
 
-def data_check(BEFORE, AFTER, url):
-    if BEFORE != AFTER:
-        result=list(set(AFTER) - set(BEFORE))
+            soup = BeautifulSoup(request.content, 'html.parser')
+
+            if re.search(r'www.anilibria.tv', url):
+
+                title = soup.find(name='img', attrs={'id': 'adminPoster'}).get('alt')
+                try:
+                    series = re.search(r'(?<=((С|c)ерия 1-)).*(?= \[)', soup.text).group()
+                except AttributeError:
+                    series = re.search(r'(\d).*(?= \[)', soup.text).group()
+                result+= f'{index} > {title} [{series}] <\n'
+
+            elif re.search(r'anime.anidub.com', url):
+
+                title = soup.find(name='h1', attrs={'class': 'titlfull'}).renderContents().decode('utf-8')
+                result+= f'{index} > {title} <\n'
+
+            else:
+
+                data = error_message
+                result+= f'{index} > {data} <\n'
+        else:
+            return error_message
+    return result
+
+class Record:
+    def clear_data(file:str, mode='w', ):
+        with open(file, mode) as result:
+            result.write
+    def append_result(file:str, data:str, mode='a'):
+        with open(file, mode, encoding='utf-8') as result:
+            result.write(f'{data}')
+
+def check_data(data, DB_result, url):
+    """
+        types:
+            old_data    —   tuple
+            new_data    —   tuple
+            result      —   list
+            index       —   int
+    """
+    old_data = get_file_data(DB_filename = DB_result, mode='r')
+    Record.clear_data(file=DB_result, mode='w')
+    Record.append_result(file=DB_result, data=data, mode='a')
+    new_data = get_file_data(DB_filename = DB_result, mode='r')
+    if old_data != new_data:
+        result=list(set(new_data) - set(old_data))
         for i in range(len(result)):
-            index = re.search('^\d+', result[i], flags=0).group()
+            index = result[i][0]
             webbrowser.open(str(url[int(index)-1]))
     else:
-        print('New series did not come out')
+        print('New series didn`t come out :c')
 
-def data_write(data):
-    with open('result.txt', mode='a', encoding='utf=8') as result:
-        result.write(data+'\n')
-
-def site_detect(url):
-    items = list(range(0, 100))
-    l = len(items)
-    for i in url:
-        for q, item in enumerate(items):
-            printProgressBar(q + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 25)
-            index = url.index(i)
-        if re.search(r'anilibria', i):
-            parse_anilibria(url=i, index=index+1)
-        elif re.search(r'anime.anidub', i):
-            parse_anidub(url=i, index=index+1)
-
-def change_dir():
-    os.chdir(os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__))))
-
-def result_clear():
-    with open('result.txt', mode='w') as clean:
-        clean.write
-
-def get_result():
-    with open('result.txt', mode='r') as data:
-        return data.read().split('\n')
-
-def get_urls():
-    with open('urls.txt', mode='r') as data:
-        return data.read().split('\n')
-
-def clean_data(url):
-    index = url.index('')
-    if index:
-        del url[index]
-    return url
-
-def main():
-    change_dir()
-    BEFORE = clean_data(get_result())
-    result_clear()
-    urls = clean_data(get_urls())
-    site_detect(url=urls)
-    AFTER = clean_data(get_result())
-    data_check(BEFORE, AFTER, url=urls)
-
-def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '#'):
-    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
-    filledLength = int(length * iteration // total)
-    bar = fill * filledLength + ':' * (length - filledLength)
-    print('\r%s |%s| %s%% %s' % (prefix, bar, percent, suffix), end = '\r')
-    if iteration == total:
-        print()
 if __name__ == '__main__':
-    print('Loading...')
-    main()
-    print('Done!')
-    sleep(3)
+    """
+        types:
+            DB_urls     —   str
+            DB_result   —   str
+            urls        —   tuple
+            headers     —   dict
+            data        —   str
+            LISTDIR     —   tuple
+
+        information:
+            DB          —   Data Base
+    """
+
+    DB_urls     =   'urls.txt'
+    DB_result   =   'result.txt'
+    LISTDIR = tuple(os.listdir())
+    headers =   {
+                    'accept'     : '*/*',
+                    'user-agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+                }
+    """ Check for files """
+    if DB_result not in LISTDIR:
+        Record.clear_data(file=DB_result, mode='w')
+    if DB_urls not in LISTDIR:
+        Record.clear_data(file=DB_urls, mode='w')
+
+    urls = get_file_data(DB_filename = DB_urls, mode='r')
+
+    if urls:
+        data = parser(urls, headers)
+        check_data(data, DB_result, url=urls)
+    else:
+        print(f'Paste in {DB_urls} any urls')

@@ -35,10 +35,10 @@ def get_data(cookies, headers, url):
                     print()
 
     except ValueError:
-        cookies_correct = re.search(r'bpc=\w+', data.text).group().split('=')[-1]
+        cookies_correct = re.search(r'(?<=bpc=).*(?=\;P)', data.text).group()
         main(bpc=cookies_correct)
 
-def main(bpc='89a0ada592fc339f7847813f87c3199b', group=quote('ДЦатБ-3-1')):
+def main(bpc='89a0ada592fc339f7847813f87c3199b', group=quote('181-362')):
     get_data(   cookies = {'bpc': bpc, 'group': group},\
                 headers = {'referer': 'https://rasp.dmami.ru/' },\
                 url = f'https://rasp.dmami.ru/site/group?group={group}&session=0'\

@@ -1,0 +1,447 @@
+{
+  "status": "ok",
+  "grid": {
+    "1": {
+      "1": [
+        {
+          "subject": "Элективные дисциплины по физической культуре и спорту",
+          "teacher": "",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Спортзал",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Практика",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "2": [],
+      "3": [
+        {
+          "subject": "Структурное проектирование ИС",
+          "teacher": "Рабинович Александр Евгеньевич",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н510",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": []
+    },
+    "2": {
+      "1": [],
+      "2": [
+        {
+          "subject": "Элективные дисциплины по физической культуре и спорту",
+          "teacher": "",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Спортзал",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Практика",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "3": [],
+      "4": [
+        {
+          "subject": "Устная инженерная и управленческая коммуникация",
+          "teacher": "Змазнева Олеся Анатольевна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-04-08",
+          "auditories": [
+            {
+              "title": "Н518",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Практика",
+          "week": "",
+          "first_module": true,
+          "second_module": false,
+          "no_module": false
+        },
+        {
+          "subject": "Устная инженерная и управленческая коммуникация",
+          "teacher": "Змазнева Олеся Анатольевна",
+          "date_from": "2019-04-09",
+          "date_to": "2019-04-09",
+          "auditories": [
+            {
+              "title": "Н218",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": false
+        },
+        {
+          "subject": "Устная инженерная и управленческая коммуникация",
+          "teacher": "Змазнева Олеся Анатольевна",
+          "date_from": "2019-04-10",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н518",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Практика",
+          "week": "",
+          "first_module": false,
+          "second_module": true,
+          "no_module": false
+        }
+      ],
+      "5": [
+        {
+          "subject": "Программирование в КИС 1С",
+          "teacher": "Семенов Сергей Максимович",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н510",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "6": [
+        {
+          "subject": "Программирование в КИС 1С",
+          "teacher": "Семенов Сергей Максимович",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н510",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "7": []
+    },
+    "3": {
+      "1": [
+        {
+          "subject": "Иностранный язык",
+          "teacher": "Колясникова Светлана Васильевна, Калитина Марина Николаевна, Шевелева Ирина Анатольевна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "В502",
+              "color": "#7aa0e7"
+            },
+            {
+              "title": "В303",
+              "color": "#7aa0e7"
+            },
+            {
+              "title": "В207",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Практика",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "2": [
+        {
+          "subject": "Основы баз данных",
+          "teacher": "Никишина Ирина Николаевна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-04-07",
+          "auditories": [
+            {
+              "title": "В207",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лекция",
+          "week": "",
+          "first_module": true,
+          "second_module": false,
+          "no_module": false
+        },
+        {
+          "subject": "Основы баз данных",
+          "teacher": "Никишина Ирина Николаевна",
+          "date_from": "2019-04-08",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н512",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": false,
+          "second_module": true,
+          "no_module": false
+        }
+      ],
+      "3": [
+        {
+          "subject": "Навыки эффективной презентации",
+          "teacher": "Змазнева Олеся Анатольевна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н506",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Практика",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": []
+    },
+    "4": {
+      "1": [
+        {
+          "subject": "Основы работы с данными",
+          "teacher": "Береснева Яна Владиславовна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-04-07",
+          "auditories": [
+            {
+              "title": "Н505",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": true,
+          "second_module": false,
+          "no_module": false
+        }
+      ],
+      "2": [
+        {
+          "subject": "Иностранный язык",
+          "teacher": "Колясникова Светлана Васильевна, Калитина Марина Николаевна, Шевелева Ирина Анатольевна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-04-07",
+          "auditories": [
+            {
+              "title": "В501",
+              "color": "#7aa0e7"
+            },
+            {
+              "title": "Б310",
+              "color": "#7aa0e7"
+            },
+            {
+              "title": "В403",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Практика",
+          "week": "",
+          "first_module": true,
+          "second_module": false,
+          "no_module": false
+        },
+        {
+          "subject": "Основы работы с данными",
+          "teacher": "Береснева Яна Владиславовна",
+          "date_from": "2019-04-08",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н505",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": false,
+          "second_module": true,
+          "no_module": false
+        }
+      ],
+      "3": [
+        {
+          "subject": "Основы работы с данными",
+          "teacher": "Береснева Яна Владиславовна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "В303",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лекция",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": []
+    },
+    "5": {
+      "1": [],
+      "2": [
+        {
+          "subject": "Математика",
+          "teacher": "Жукова Галина Севастьяновна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "В311",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Практика",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "3": [
+        {
+          "subject": "Математика",
+          "teacher": "Жукова Галина Севастьяновна",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "В311",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лекция",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": []
+    },
+    "6": {
+      "1": [
+        {
+          "subject": "Основы сетевых технологий",
+          "teacher": "Карпов Александр Викторович",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н506",
+              "color": "#7aa0e7"
+            },
+            {
+              "title": "Н507",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "2": [
+        {
+          "subject": "Основы сетевых технологий",
+          "teacher": "Карпов Александр Викторович",
+          "date_from": "2019-02-04",
+          "date_to": "2019-06-02",
+          "auditories": [
+            {
+              "title": "Н506",
+              "color": "#7aa0e7"
+            },
+            {
+              "title": "Н507",
+              "color": "#7aa0e7"
+            }
+          ],
+          "type": "Лаб. работа",
+          "week": "",
+          "first_module": false,
+          "second_module": false,
+          "no_module": true
+        }
+      ],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": []
+    }
+  },
+  "group": {
+    "title": "181-362",
+    "dateFrom": "2019-02-04",
+    "dateTo": "2019-06-02",
+    "evening": 0,
+    "comment": ""
+  },
+  "isSession": false
+}

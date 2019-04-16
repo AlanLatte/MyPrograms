@@ -1,10 +1,18 @@
+#Tokens
 api_token*
 
+#scripts
 AutoReadMe.sh
 
+#Local files
 result.txt
 urls.txt
+score.txt
 
+#Java
+*.class
+
+#Python
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
